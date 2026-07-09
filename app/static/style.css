@@ -1,1 +1,103 @@
+/* General Styling */
+body {
+  /* Was a local D:/ path, which only ever worked on the developer's
+     machine. Now points to an image you host yourself inside
+     static/assets/ so it works both locally and once deployed.
+     Replace background.jpg with an image you actually have the
+     rights to use (e.g. a royalty-free agriculture photo). */
+  background-image: url("assets/background.jpg");
+  background-repeat: no-repeat; /* Optional: Controls how the image repeats */
+  background-position: center; /* Optional: Controls the placement of the image */
+  background-size: cover; /* Optional: Controls how the image fits the container */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  }
+  
+  /* Centering for Header */
+  h1 {
+    text-align: center;
+  }
+  
+  /* Slideshow Styling */
+  .mySlides {
+    display: none;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .text {
+    color: white;
+    font-size: 20px;
+    margin: 20px 0;
+  }
+  
+  /* Image Styling with Centering */
+  img {
+    width: 100%; /* Adjust width as needed */
+    display: block;
+    margin: 0 auto; /* Centers image horizontally */
+    border-radius: 10px; /* Rounded corners */
+    border: 4px solid rgb(12, 113, 100); /* Adjust border color as needed */
+    padding: 6px;
+  }
+  .upload-container {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center elements horizontally */
+    justify-content: center; /* Optionally center elements vertically within container */
+    margin: 0 auto; /* Center the container horizontally within the body */
+  }
+  
+  button {
+    font-size: 20px;
+    background-color: rgb(56, 138, 86);
+    border: 10px solid black;
+    padding: 4px;
+    margin-top: 10px; /* Add some spacing between elements (optional) */
+  }
+  /* Dot Navigation Styling */
+  /* .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #fafafa;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.4s ease;
+  } */
+  
+  /* .dot.active {
+    background-color: #0f1db7;
+  } */
+  /* .buttons{
+    margin: 180px 300px;
+    display: flex;
+    gap: 40px;
+    align-items: right;
+} */
 
+/* a{
+    text-decoration: none;
+    color: rgb(0, 21, 128);
+} */
+
+/* button{
+    flex-grow: 1;
+    font-size: 20px;
+    background-color: rgb(56, 138, 86);
+    border: 5px solid black;
+    padding: 4px;
+} */
+/* Plant Buttons Styling */
+  
+  /* Centering for Prediction Section */
+  h2, #predictedClass, #confidence {
+    text-align: center;
+  }
+  
+  /* Uploaded Image Styling with Centering */
+  #uploadedImage {
+    margin: 0 auto; /* Centers image horizontally */
+  }
