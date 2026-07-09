@@ -1,45 +1,16 @@
-function uploadImage() {
-    const fileInput = document.getElementById('fileInput');
-    const uploadedImage = document.getElementById('uploadedImage');
+function displayPredictionResult(data) {
     const predictedClass = document.getElementById('predictedClass');
     const confidence = document.getElementById('confidence');
     const diagnosis = document.getElementById('diagnosis');
     const treatment = document.getElementById('treatment');
     const advice = document.getElementById('advice');
-  
-    if (fileInput.files.length === 0) {
-      alert('Please select an image to upload.');
-      return;
-    }
-  
-    const file = fileInput.files[0];
-    const reader = new FileReader();
-    // Defines an onload event handler for the FileReader. When the file is read, this function sets the source of the uploadedImage element to the file's data URL and makes it visible.
-    reader.onload = function (e) {
-      uploadedImage.src = e.target.result;
-      uploadedImage.style.display = 'block';
-    };
-  
-    reader.readAsDataURL(file);
-   // Reads the file as a data URL, triggering the onload event when done.
-    const formData = new FormData();
-    formData.append('file', file);
-  
-    // Relative path instead of a hardcoded localhost URL, so this works
-    // both locally (served by uvicorn) and once deployed on Render,
-    // since the frontend and the API are served from the same origin.
-    fetch('/predict', {
-      method: 'POST',
-      body: formData
-    })
-      .then(response => response.json())
-      .then(data => {
-        predictedClass.textContent = 'Class: ' + data.class;
-        confidence.textContent = 'Confidence: ' + data.confidence;
-        //Sends a POST request to the /predict endpoint with the file data. When the response is received, it is converted to JSON, and the class and confidence of the prediction are displayed.
-        // Hardcoded diagnosis, treatment, and advice based on the predicted class
-        switch (data.class) {
-            case 'AppleApple_scab':
+
+    predictedClass.textContent = 'Class: ' + data.class;
+    confidence.textContent = 'Confidence: ' + data.confidence;
+
+    // Hardcoded diagnosis, treatment, and advice based on the predicted class
+    switch (data.class) {
+        case 'AppleApple_scab':
     diagnosis.textContent = 'Diagnosis: Apple Apple Scab';
     treatment.textContent = 'Treatment: Apply fungicide spray containing sulfur or copper.';
     advice.textContent = 'Advice: Implement good sanitation practices; remove and destroy fallen leaves.';
@@ -234,12 +205,61 @@ case 'SquashPowdery_mildew':
         treatment.textContent = 'Treatment: Not Available';
         advice.textContent = 'Advice: No specific advice available';
         break;
-    
+    }
+}
 
-        }
-      })
+// Shared by both the file-upload flow and the "Try Sample Images" flow:
+// sends a Blob to /predict, shows it in the preview <img>, and renders
+// the result via displayPredictionResult().
+function sendToPredict(blob, previewSrc) {
+    const uploadedImage = document.getElementById('uploadedImage');
+    uploadedImage.src = previewSrc;
+    uploadedImage.style.display = 'block';
+
+    const formData = new FormData();
+    formData.append('file', blob, 'image.jpg');
+
+    // Relative path instead of a hardcoded localhost URL, so this works
+    // both locally (served by uvicorn) and once deployed on Render,
+    // since the frontend and the API are served from the same origin.
+    fetch('/predict', {
+      method: 'POST',
+      body: formData
+    })
+      .then(response => response.json())
+      .then(data => displayPredictionResult(data))
       .catch(error => {
         console.error('Error:', error);
         alert('An error occurred while processing the image.');
+      });
+}
+
+function uploadImage() {
+    const fileInput = document.getElementById('fileInput');
+
+    if (fileInput.files.length === 0) {
+      alert('Please select an image to upload.');
+      return;
+    }
+
+    const file = fileInput.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      sendToPredict(file, e.target.result);
+    };
+    reader.readAsDataURL(file);
+}
+
+// Runs a prediction on one of the bundled sample images instead of a
+// user upload, so recruiters/visitors can try the app without needing
+// to find their own plant photo. samplePath should point to a file in
+// static/assets/, e.g. 'assets/sample_1.jpg'.
+function trySample(samplePath) {
+    fetch(samplePath)
+      .then(response => response.blob())
+      .then(blob => sendToPredict(blob, samplePath))
+      .catch(error => {
+        console.error('Error loading sample image:', error);
+        alert('Could not load that sample image.');
       });
 }
