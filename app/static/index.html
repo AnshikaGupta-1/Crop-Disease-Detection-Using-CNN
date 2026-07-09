@@ -1,1 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Predict Crop Diseases</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+<link rel="stylesheet" href="style.css">
+<style>
+  .text {
+  font-size: 20px;
+  padding-left: 20px;
+}
+.upload-group{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 100px;
+  justify-content: center;
+}
+.upload-container{
+  text-align: center;
+  margin: 0 auto;
+}
+.animate-charcter
+{
+   text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 5s linear infinite;
+  display: inline-block;
+      font-size: 40px;
+}
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+body,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
+</style>
+</head><body>
+<!-- Start Content -->
+<div id="home" class="w3-content">
 
+<!-- Navbar (Sits on top) -->
+</div>
+		<div class="w3-top w3-bar w3-xlarge w3-black w3-opacity-min">
+<a href="#home" class="w3-bar-item w3-button">HOME</a>
+<a href="#menu" class="w3-bar-item w3-button">PREDICT</a>
+<a href="#about" class="w3-bar-item w3-button">ABOUT</a>
+<a href="#contact" class="w3-bar-item w3-button">CONTACT</a>
+</div>
+  
+<!-- Header image -->
+<!-- Self-hosted background: place your own royalty-free image at
+     static/assets/background.jpg (the old wixmp URL was a token-signed
+     link to someone else's DeviantArt artwork and would eventually expire). -->
+<div style="height:800px;background-image:url('assets/background.jpg');background-size:cover" class="w3-display-container w3-grayscale-min">
+<div class="w3-display-bottomleft">
+  <span class="w3-tag w3-xlarge">A Deep Learning Project</span>
+</div>
+<div class="w3-display-middle w3-center">
+  <span class="w3-text-white" style="font-size:100px">CROP DISEASE<br>PREDICTION</span>
+  <p><a href="#menu" class="w3-button w3-xxlarge w3-black">See plants we cover</a></p>
+</div>
+</div>
+
+<!-- Menu -->
+<div id="menu" class="w3-container w3-black w3-xxlarge w3-padding-64">
+<h1 class="w3-center w3-jumbo w3-padding-32">For Predictions</h1>
+<div class="w3-row w3-center w3-border w3-border-dark-grey">
+<a href="#pizza"><div class="w3-third w3-padding-large w3-red">Plants</div></a>
+
+<a href="#pasta"><div class="w3-third w3-padding-large w3-hover-red">Upload & Predict</div></a>
+<a href="#starters"><div class="w3-third w3-padding-large w3-hover-red">Diagnosis & Treatment</div></a>
+</div>
+<div id="pizza" class="w3-container w3-white w3-padding-32">
+     <div class="row">
+    <div class="col-md-12 text-center">
+      <center>
+        <h1 >The plants we cover are    </h1>
+       
+        <h2 class="animate-charcter"><b>Blueberry</b></br><img src= "https://tse4.explicit.bing.net/th?id=OIP.FRvDtfQLVA2BQ_x0V8FXsgHaEo&pid=Api&P=0&h=180" width="120" height="120"></h2>
+
+        <h2 class="animate-charcter"><b>Raspberry</b></br><img src= "https://tse4.mm.bing.net/th?id=OIP.HJpJIAc-oxC792_oukGb0gHaEo&pid=Api&P=0&h=180" width="120" height="120"></h2>
+
+        <h2 class="animate-charcter"><b>Corn_(maize)</b></br><img src= "https://tse4.mm.bing.net/th?id=OIP.lCdeDht__DfxY453eWN0bwHaEo&pid=Api&P=0&h=180"class="center" width="120" height="120" ></h2>
+
+        <h2 class="animate-charcter"><b>Pepper bell</br></b><img src= "https://pepperscale.com/wp-content/uploads/2019/09/Bell-Pepper-Facts.jpg" width="120" height="120"></h2>
+
+        <h2 class="animate-charcter"><b>Strawberry</b></br><img src= "https://tse3.mm.bing.net/th?id=OIP.vj8vqCH14bpOnRV6CqExkgHaEo&pid=Api&P=0&h=180" width="120" height="120"></h2>
+
+        <h2 class="animate-charcter"><b>Soybean</b></br><img src= "https://tse1.mm.bing.net/th?id=OIP.pUhsJKNptevCmAfgriErwwHaE8&pid=Api&P=0&h=180" width="120" height="120"></h2>
+
+        <h2 class="animate-charcter"><b>Potato</b></br><img src= "https://tse2.mm.bing.net/th?id=OIP.XORJjXy2cjiVpPtZQUnCJQHaE7&pid=Api&P=0&h=180" width="120" height="120"></h2>
+
+        <h2 class="animate-charcter"><b>Tomato</b></br><img src= "https://tse1.mm.bing.net/th?id=OIP.0wrzV9Gex__Nvey_qYN3gwHaE8&pid=Api&P=0&h=180" width="120" height="120"></h2>
+
+        <h2 class="animate-charcter"><b>Grape</b></br><img src= "https://tse1.mm.bing.net/th?id=OIP.byrfrsTo4BeVb-Mhyb5EsQHaGa&pid=Api&P=0&h=180" width="120" height="120" ></h2>
+
+        <h2 class="animate-charcter"><b>Orange</b></br><img src= "https://tse4.mm.bing.net/th?id=OIP.QXSoVKP2acdvxWZuCCPNOwHaE7&pid=Api&P=0&h=180" width="120" height="120"></h2>
+
+        <h2 class="animate-charcter"><b>Apple</b></br><img src= "https://tse1.mm.bing.net/th?id=OIP.pC-7k1H5urlZWcMwa_gffAHaE5&pid=Api&P=0&h=180" width="120" height="120"></h2>
+
+        <h2 class="animate-charcter"><b>Cherry</b></br><img src= "https://tse1.mm.bing.net/th?id=OIP.aNbXT8oxYQYpmtMsIsr5UAHaEo&pid=Api&P=0&h=180" width="120" height="120"></h2>
+
+        <h2 class="animate-charcter"><b>Peach</b></br><img src= "https://tse4.mm.bing.net/th?id=OIP.vriFSUCjPRsMBx34scDK3AHaEo&pid=Api&P=0&h=180" width="120" height="120"></h2>
+
+        
+
+        <h2 class="animate-charcter"><b>Squash</b></br><img src= "https://tse1.mm.bing.net/th?id=OIP.IjqvZH4rNwcBX9os3TBshwHaE8&pid=Api&P=0&h=180" width="120" height="120"></h2>
+      </center>
+</div>
+     </div>
+<h1 id="pasta" class="w3-center w3-jumbo w3-padding-32">Upload & Predict</h1>
+<div class="w3-container w3-white w3-padding-32" >
+  <div class = upload-container>
+  <div style="height:100px;background-image:url('assets/background.jpg');background-size:cover" class="w3-display-container w3-grayscale-min"></div>
+  <div class = "upload-group">
+   <input type="file" id="fileInput">
+    <button onclick="uploadImage()">Upload and Predict</button>
+</div>
+</div>
+    <h2>Prediction Result:</h2>
+    <p id="predictedClass"><b>Class: </b> N/A</p>
+    <p id="confidence"><b>Confidence: </b> N/A</p>
+    <div class="image">
+    <img id="uploadedImage" style="display: none; width: 256px; height: 256px;">
+    <script src="script.js"></script>
+</div>
+<!-- Diagnosis & Treatment -->
+<h1 id="starters" class="w3-center w3-jumbo w3-padding-32">Diagnosis & Treatment</h1>
+<div class="w3-container w3-white w3-padding-32">
+  <div style="height:100px;background-image:url('assets/background.jpg');background-size:cover" class="w3-display-container w3-grayscale-min"></div>
+  <h1 id="diagnosis">Diagnosis: N/A</h1>
+  <h1 id="treatment">Treatment: N/A</h1>
+  <h1 id="advice">Advice: N/A</h1>
+</div>
+</div>
+</div>
+
+<!-- About -->
+<div id="about" class="w3-container w3-red w3-grayscale w3-xlarge w3-padding-64">
+<h1 class="w3-center w3-jumbo">About</h1>
+<p><h1>This is a deep learning project created by Anshika Gupta and Devang Solanki.</h1></p>
+<p><strong><h1>Use Cases</strong> The web-page can efficiently predict crop diseases of 14 plants</h1><img src="https://tse4.mm.bing.net/th?id=OIP.kuTS-Ya0qpI1l8ndufUOoQHaEK&pid=Api&P=0&h=180" style="width:300px" class="w3-circle w3-right" alt="Chef"></p>
+<p class="w3-padding-16 w3-stretch">
+<img src="" style="width:100%" alt="">
+</p>
+<button><h1 class="animate-charcter"><b>UPTO 99 % ACCURACY</b></h1></button>
+</br>
+<h1 class="animate-charcter"><b>USEFUL FOR AGRICULTURE, </b></h1>
+<button><h1 class="animate-charcter"><b>Offers Diagnosis along with Treatment</b></h1></button>
+</br>
+<center><h1 class="animate-charcter"><b>To plant is to believe in future and to Predict is to save the future</b></h1></center>
+</div>
+
+<!-- Contact -->
+<div id="contact" class="w3-container w3-red w3-grayscale w3-xlarge w3-padding-64">
+<div class="w3-container w3-blue-grey w3-grayscale-min w3-xlarge w3-padding-top-32">
+<h1 class="w3-center w3-jumbo">Contact</h1>
+<p>Give us a call on +91 8824623961</p>
+<p>Please contact us regarding any queries on our project.</p>
+<p class="w3-xxlarge"><b>Protect</b> your plants from diseases , mail us for specific queries</p>
+<form action="/action_page.php" target="_blank">
+<p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required="" name="Name"></p>
+<p><input class="w3-input w3-padding-16 w3-border" type="datetime-local" placeholder="Date and time" required="" name="date" value="2024-5-15T20:00"></p>
+<p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Send us your queries" required="" name="Message"></p>
+<p><button class="w3-button w3-light-grey w3-block" type="submit"><a href="mailto:anshikagupta399@gmail.com.com?subject=Mail from our Website">Send Email</a></button></p>
+</form>
+<p class="w3-center w3-xlarge w3-padding-32">Made by Anshika Gupta and Devang Solanki</p>
+</div>
+</div>
+<!-- End Content -->
+</body></html>
