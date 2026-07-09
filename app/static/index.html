@@ -66,10 +66,10 @@ body,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 </div>
   
 <!-- Header image -->
-<!-- Self-hosted background: place your own royalty-free image at
-     static/assets/background.jpg (the old wixmp URL was a token-signed
-     link to someone else's DeviantArt artwork and would eventually expire). -->
-<div style="height:800px;background-image:url('assets/background.jpg');background-size:cover" class="w3-display-container w3-grayscale-min">
+<!-- Using the original Wix-hosted background URL. Note: it has a
+     ?token= query param, which is typically a signed/expiring link,
+     so if this image stops loading someday, that's likely why. -->
+<div style="height:800px;background-image:url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/411a2834-819f-450a-ac22-411d7868316d/d1ktamd-759922a7-2026-41fb-a192-ee972ff794e8.jpg/v1/fit/w_750,h_468,q_70,strp/till_the_soil___revisited_by_myinqi_d1ktamd-375w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTAwIiwicGF0aCI6IlwvZlwvNDExYTI4MzQtODE5Zi00NTBhLWFjMjItNDExZDc4NjgzMTZkXC9kMWt0YW1kLTc1OTkyMmE3LTIwMjYtNDFmYi1hMTkyLWVlOTcyZmY3OTRlOC5qcGciLCJ3aWR0aCI6Ijw9ODAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.k5M2jA7UjP3D8g11Wylu-3ElxsWejl6pR3WOaw-JM2A');background-size:cover" class="w3-display-container w3-grayscale-min">
 <div class="w3-display-bottomleft">
   <span class="w3-tag w3-xlarge">A Deep Learning Project</span>
 </div>
@@ -129,10 +129,24 @@ body,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 <h1 id="pasta" class="w3-center w3-jumbo w3-padding-32">Upload & Predict</h1>
 <div class="w3-container w3-white w3-padding-32" >
   <div class = upload-container>
-  <div style="height:100px;background-image:url('assets/background.jpg');background-size:cover" class="w3-display-container w3-grayscale-min"></div>
+  <div style="height:100px;background-image:url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/411a2834-819f-450a-ac22-411d7868316d/d1ktamd-759922a7-2026-41fb-a192-ee972ff794e8.jpg/v1/fit/w_750,h_468,q_70,strp/till_the_soil___revisited_by_myinqi_d1ktamd-375w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTAwIiwicGF0aCI6IlwvZlwvNDExYTI4MzQtODE5Zi00NTBhLWFjMjItNDExZDc4NjgzMTZkXC9kMWt0YW1kLTc1OTkyMmE3LTIwMjYtNDFmYi1hMTkyLWVlOTcyZmY3OTRlOC5qcGciLCJ3aWR0aCI6Ijw9ODAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.k5M2jA7UjP3D8g11Wylu-3ElxsWejl6pR3WOaw-JM2A');background-size:cover" class="w3-display-container w3-grayscale-min"></div>
   <div class = "upload-group">
    <input type="file" id="fileInput">
     <button onclick="uploadImage()">Upload and Predict</button>
+</div>
+
+<!-- Lets visitors (e.g. recruiters) test the model instantly without
+     needing to find their own plant photo. Place sample_1.jpg through
+     sample_5.jpg inside static/assets/ for these thumbnails to work. -->
+<div class="upload-container" style="margin-top:20px;">
+  <p class="text"><b>Or try a sample image:</b></p>
+  <div style="display:flex;gap:15px;justify-content:center;flex-wrap:wrap;">
+    <img src="assets/sample_1.jpg" alt="Sample 1" style="width:100px;height:100px;object-fit:cover;cursor:pointer;" onclick="trySample('assets/sample_1.jpg')">
+    <img src="assets/sample_2.jpg" alt="Sample 2" style="width:100px;height:100px;object-fit:cover;cursor:pointer;" onclick="trySample('assets/sample_2.jpg')">
+    <img src="assets/sample_3.jpg" alt="Sample 3" style="width:100px;height:100px;object-fit:cover;cursor:pointer;" onclick="trySample('assets/sample_3.jpg')">
+    <img src="assets/sample_4.jpg" alt="Sample 4" style="width:100px;height:100px;object-fit:cover;cursor:pointer;" onclick="trySample('assets/sample_4.jpg')">
+    <img src="assets/sample_5.jpg" alt="Sample 5" style="width:100px;height:100px;object-fit:cover;cursor:pointer;" onclick="trySample('assets/sample_5.jpg')">
+  </div>
 </div>
 </div>
     <h2>Prediction Result:</h2>
@@ -145,7 +159,7 @@ body,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 <!-- Diagnosis & Treatment -->
 <h1 id="starters" class="w3-center w3-jumbo w3-padding-32">Diagnosis & Treatment</h1>
 <div class="w3-container w3-white w3-padding-32">
-  <div style="height:100px;background-image:url('assets/background.jpg');background-size:cover" class="w3-display-container w3-grayscale-min"></div>
+  <div style="height:100px;background-image:url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/411a2834-819f-450a-ac22-411d7868316d/d1ktamd-759922a7-2026-41fb-a192-ee972ff794e8.jpg/v1/fit/w_750,h_468,q_70,strp/till_the_soil___revisited_by_myinqi_d1ktamd-375w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTAwIiwicGF0aCI6IlwvZlwvNDExYTI4MzQtODE5Zi00NTBhLWFjMjItNDExZDc4NjgzMTZkXC9kMWt0YW1kLTc1OTkyMmE3LTIwMjYtNDFmYi1hMTkyLWVlOTcyZmY3OTRlOC5qcGciLCJ3aWR0aCI6Ijw9ODAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.k5M2jA7UjP3D8g11Wylu-3ElxsWejl6pR3WOaw-JM2A');background-size:cover" class="w3-display-container w3-grayscale-min"></div>
   <h1 id="diagnosis">Diagnosis: N/A</h1>
   <h1 id="treatment">Treatment: N/A</h1>
   <h1 id="advice">Advice: N/A</h1>
